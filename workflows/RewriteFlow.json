@@ -1,0 +1,3643 @@
+{
+    "type": "coze-workflow-clipboard-data",
+    "source": {
+        "workflowId": "7611568292705075215",
+        "flowMode": 0,
+        "spaceId": "7507882635793530889",
+        "isDouyin": false,
+        "host": "www.coze.cn"
+    },
+    "json": {
+        "nodes": [
+            {
+                "id": "174801",
+                "type": "45",
+                "meta": {
+                    "position": {
+                        "x": -1365.8856285126856,
+                        "y": -811.7080938084436
+                    }
+                },
+                "data": {
+                    "nodeMeta": {
+                        "description": "用于发送API请求，从接口返回数据",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-HTTP.png",
+                        "mainColor": "#3071F2",
+                        "subTitle": "HTTP 请求",
+                        "title": "HTTP 请求"
+                    },
+                    "inputParameters": [],
+                    "inputs": {
+                        "apiInfo": {
+                            "method": "POST",
+                            "url": "http://dev.oxox.studio/api/tools/parsevu"
+                        },
+                        "auth": {
+                            "authData": {
+                                "customData": {
+                                    "addTo": "header"
+                                }
+                            },
+                            "authOpen": false,
+                            "authType": "BEARER_AUTH"
+                        },
+                        "body": {
+                            "bodyData": {
+                                "binary": {
+                                    "fileURL": {
+                                        "type": "string",
+                                        "value": {
+                                            "type": "ref",
+                                            "content": {
+                                                "source": "block-output",
+                                                "blockID": "",
+                                                "name": ""
+                                            },
+                                            "rawMeta": {
+                                                "type": 1
+                                            }
+                                        }
+                                    }
+                                },
+                                "formURLEncoded": [
+                                    {
+                                        "name": "url",
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "type": "ref",
+                                                "content": {
+                                                    "source": "block-output",
+                                                    "blockID": "100001",
+                                                    "name": "share"
+                                                },
+                                                "rawMeta": {
+                                                    "type": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "bodyType": "FORM_URLENCODED"
+                        },
+                        "headers": [],
+                        "params": [],
+                        "setting": {
+                            "retryTimes": 3,
+                            "timeout": 120
+                        },
+                        "settingOnError": {}
+                    },
+                    "outputs": [
+                        {
+                            "type": "string",
+                            "name": "body"
+                        },
+                        {
+                            "type": "integer",
+                            "name": "statusCode"
+                        },
+                        {
+                            "type": "string",
+                            "name": "headers"
+                        }
+                    ],
+                    "settingOnError": {}
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": -1545.8856285126856,
+                        "y": -811.7080938084436,
+                        "width": 360,
+                        "height": 113.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-HTTP.png",
+                        "description": "用于发送API请求，从接口返回数据",
+                        "title": "HTTP 请求",
+                        "mainColor": "#3071F2"
+                    }
+                }
+            },
+            {
+                "id": "164442",
+                "type": "5",
+                "meta": {
+                    "position": {
+                        "x": 214.11437148731466,
+                        "y": -749.5810105499221
+                    }
+                },
+                "data": {
+                    "nodeMeta": {
+                        "description": "编写代码，处理输入变量来生成返回值",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                        "mainColor": "#00B2B2",
+                        "subTitle": "代码",
+                        "title": "代码"
+                    },
+                    "inputs": {
+                        "inputParameters": [
+                            {
+                                "name": "input",
+                                "input": {
+                                    "type": "object",
+                                    "schema": [],
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "130355",
+                                            "name": "output"
+                                        },
+                                        "rawMeta": {
+                                            "type": 6
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "code": "// 在这里，您可以通过 ‘params’  获取节点中的输入变量，并通过 'ret' 输出结果\n// 'params' 和 'ret' 已经被正确地注入到环境中\n// 下面是一个示例，获取节点输入中参数名为‘input’的值：\n// const input = params.input; \n// 下面是一个示例，输出一个包含多种数据类型的 'ret' 对象：\n// const ret = { \"name\": ‘小明’, \"hobbies\": [“看书”, “旅游”] };\n\nasync function main({ params }: Args): Promise<Output> {\n\n    return params.input.video_url;\n}",
+                        "language": 5,
+                        "settingOnError": {
+                            "processType": 1,
+                            "timeoutMs": 60000,
+                            "retryTimes": 0
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "type": "string",
+                            "name": "video_url"
+                        }
+                    ],
+                    "version": "v2"
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": 34.114371487314656,
+                        "y": -749.5810105499221,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                        "description": "编写代码，处理输入变量来生成返回值",
+                        "title": "代码",
+                        "mainColor": "#00B2B2"
+                    }
+                }
+            },
+            {
+                "id": "130355",
+                "type": "59",
+                "meta": {
+                    "position": {
+                        "x": -575.8856285126853,
+                        "y": -749.5810105499221
+                    }
+                },
+                "data": {
+                    "inputs": {
+                        "inputParameters": [
+                            {
+                                "name": "input",
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "174801",
+                                            "name": "body"
+                                        },
+                                        "rawMeta": {
+                                            "type": 1
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "nodeMeta": {
+                        "description": "用于把JSON字符串转化为变量",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-from_json.png",
+                        "mainColor": "#F2B600",
+                        "subTitle": "JSON 反序列化",
+                        "title": "JSON 反序列化"
+                    },
+                    "outputs": [
+                        {
+                            "type": "object",
+                            "name": "output",
+                            "schema": []
+                        }
+                    ]
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": -755.8856285126853,
+                        "y": -749.5810105499221,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-from_json.png",
+                        "description": "用于把JSON字符串转化为变量",
+                        "title": "JSON 反序列化",
+                        "mainColor": "#F2B600"
+                    }
+                }
+            },
+            {
+                "id": "196421",
+                "type": "59",
+                "meta": {
+                    "position": {
+                        "x": -1825.8856285126856,
+                        "y": -206.68101054992198
+                    }
+                },
+                "data": {
+                    "inputs": {
+                        "inputParameters": [
+                            {
+                                "name": "input",
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "176508",
+                                            "name": "data"
+                                        },
+                                        "rawMeta": {
+                                            "type": 1
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "nodeMeta": {
+                        "description": "用于把JSON字符串转化为变量",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-from_json.png",
+                        "mainColor": "#F2B600",
+                        "subTitle": "JSON 反序列化",
+                        "title": "JSON 反序列化_1"
+                    },
+                    "outputs": [
+                        {
+                            "type": "list",
+                            "name": "output",
+                            "schema": {
+                                "type": "object",
+                                "schema": []
+                            }
+                        }
+                    ]
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": -2005.8856285126856,
+                        "y": -206.68101054992198,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-from_json.png",
+                        "description": "用于把JSON字符串转化为变量",
+                        "title": "JSON 反序列化",
+                        "mainColor": "#F2B600"
+                    }
+                }
+            },
+            {
+                "id": "176508",
+                "type": "4",
+                "meta": {
+                    "position": {
+                        "x": -2285.885628512686,
+                        "y": -206.68101054992198
+                    }
+                },
+                "data": {
+                    "nodeMeta": {
+                        "description": "读取excel文件",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Plugin-v2.jpg",
+                        "subtitle": "excel文件读取:excel_tools",
+                        "title": "excel_tools"
+                    },
+                    "inputs": {
+                        "apiParam": [
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "7389203969416953871",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "apiID"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "excel_tools",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "apiName"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "7389203969416937487",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginID"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "excel文件读取",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginName"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginVersion"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "tips"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "outDocLink"
+                            }
+                        ],
+                        "inputParameters": [
+                            {
+                                "name": "file",
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "100001",
+                                            "name": "file"
+                                        },
+                                        "rawMeta": {
+                                            "type": 1
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "name": "sheet_name",
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "type": "literal",
+                                        "content": "Sheet1",
+                                        "rawMeta": {
+                                            "type": 1
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "settingOnError": {
+                            "processType": 1,
+                            "timeoutMs": 180000,
+                            "retryTimes": 0
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "type": "string",
+                            "name": "data",
+                            "required": true,
+                            "description": "jsonarray格式的数据"
+                        }
+                    ]
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": -2465.885628512686,
+                        "y": -206.68101054992198,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf26-appstore-sign.oceancloudapi.com/ocean-cloud-tos/plugin_icon/default_icon.png?lk3s=cd508e2b&x-expires=1781613164&x-signature=SsOJ2o4LjV5gVRiWsfIGCNYQlW0%3D",
+                        "apiName": "excel_tools",
+                        "pluginID": "7389203969416937487",
+                        "pluginProductStatus": 1,
+                        "pluginProductUnlistType": 0,
+                        "pluginType": 1,
+                        "spaceID": "7389199259671003177",
+                        "inputs": [
+                            {
+                                "description": "需要读取的文件",
+                                "input": {},
+                                "name": "file",
+                                "required": true,
+                                "type": "string"
+                            },
+                            {
+                                "description": "需要读取的sheet名称",
+                                "input": {},
+                                "name": "sheet_name",
+                                "required": true,
+                                "type": "string"
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "description": "jsonarray格式的数据",
+                                "input": {},
+                                "name": "data",
+                                "required": true,
+                                "type": "string"
+                            }
+                        ],
+                        "updateTime": 1779020517,
+                        "channel_id": 2,
+                        "commercial_setting": {},
+                        "latestVersionTs": "0",
+                        "latestVersionName": "",
+                        "versionName": "",
+                        "description": "读取excel文件",
+                        "title": "excel_tools",
+                        "mainColor": "#CA61FF"
+                    }
+                }
+            },
+            {
+                "id": "142578",
+                "type": "5",
+                "meta": {
+                    "position": {
+                        "x": 477.259322374824,
+                        "y": -252.7313769552362
+                    }
+                },
+                "data": {
+                    "nodeMeta": {
+                        "description": "编写代码，处理输入变量来生成返回值",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                        "mainColor": "#00B2B2",
+                        "subTitle": "代码",
+                        "title": "代码_2"
+                    },
+                    "inputs": {
+                        "inputParameters": [
+                            {
+                                "name": "input",
+                                "input": {
+                                    "type": "list",
+                                    "schema": {
+                                        "type": "object",
+                                        "schema": []
+                                    },
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "196421",
+                                            "name": "output"
+                                        },
+                                        "rawMeta": {
+                                            "type": 103
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "name": "content",
+                                "input": {
+                                    "type": "list",
+                                    "schema": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "149805",
+                                            "name": "output"
+                                        },
+                                        "rawMeta": {
+                                            "type": 99
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "name": "content2",
+                                "input": {
+                                    "type": "list",
+                                    "schema": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "177388",
+                                            "name": "output"
+                                        },
+                                        "rawMeta": {
+                                            "type": 99
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "code": "async function main({ params }: Args): Promise<Output> {\n    const outputdata = params.input.map((item, i) => ({\n      fields: {\n        \"达人昵称\": item[\"达人昵称\"],\n        \"达人链接\": item[\"达人链接\"],\n        \"抖音号\": item[\"抖音号\"],\n        \"视频链接\": item[\"视频链接\"],\n        \"视频描述\": item[\"视频描述\"],\n        \"点赞量\": item[\"点赞数\"],\n        \"收藏量\": item[\"收藏数\"],\n        \"评论量\": item[\"评论数\"],\n        \"分享量\": item[\"分享数\"],\n        \"发布时间\": item[\"发布时间\"],\n        \"相关搜索（大家都在搜）\": item[\"大家都在搜\"],\n        \"文案内容\": params.content?.[i] ?? params.content2?.[i] ?? \"\"\n      }\n    }));\n  \n    return {\n      output: outputdata\n    };\n  }\n  ",
+                        "language": 5,
+                        "settingOnError": {
+                            "processType": 1,
+                            "timeoutMs": 60000,
+                            "retryTimes": 0
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "type": "list",
+                            "name": "output",
+                            "schema": {
+                                "type": "object",
+                                "schema": []
+                            }
+                        }
+                    ],
+                    "version": "v2"
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": 297.259322374824,
+                        "y": -252.7313769552362,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                        "description": "编写代码，处理输入变量来生成返回值",
+                        "title": "代码",
+                        "mainColor": "#00B2B2"
+                    }
+                }
+            },
+            {
+                "id": "124266",
+                "type": "18",
+                "meta": {
+                    "position": {
+                        "x": -2745.885628512686,
+                        "y": -876.1080938084436
+                    }
+                },
+                "data": {
+                    "inputs": {
+                        "llmParam": {
+                            "generationDiversity": "balance",
+                            "maxTokens": 4096,
+                            "modelName": "豆包·1.5·Pro·32k",
+                            "modelType": 1737521813,
+                            "responseFormat": 2,
+                            "systemPrompt": "",
+                            "temperature": 0.8
+                        },
+                        "inputParameters": [],
+                        "extra_output": false,
+                        "answer_type": "option",
+                        "option_type": "static",
+                        "dynamic_option": {
+                            "type": "string",
+                            "value": {
+                                "type": "ref",
+                                "content": {
+                                    "source": "block-output",
+                                    "blockID": "",
+                                    "name": ""
+                                },
+                                "rawMeta": {
+                                    "type": 1
+                                }
+                            }
+                        },
+                        "question": "表格批量获取文案？\n分享链接获取文案？",
+                        "options": [
+                            {
+                                "name": "表格"
+                            },
+                            {
+                                "name": "分享链接"
+                            }
+                        ],
+                        "limit": 3
+                    },
+                    "nodeMeta": {
+                        "description": "支持中间向用户提问问题,支持预置选项提问和开放式问题提问两种方式",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Direct-Question-v2.jpg",
+                        "mainColor": "#3071F2",
+                        "subTitle": "问答",
+                        "title": "问答"
+                    },
+                    "outputs": [
+                        {
+                            "type": "string",
+                            "name": "optionId",
+                            "required": false
+                        },
+                        {
+                            "type": "string",
+                            "name": "optionContent",
+                            "required": false
+                        },
+                        {
+                            "type": "object",
+                            "name": "QUESTION_DATA",
+                            "schema": [
+                                {
+                                    "type": "string",
+                                    "name": "title"
+                                },
+                                {
+                                    "type": "list",
+                                    "name": "options",
+                                    "schema": {
+                                        "type": "object",
+                                        "schema": [
+                                            {
+                                                "type": "string",
+                                                "name": "name"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "required": false
+                        }
+                    ]
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": -2925.885628512686,
+                        "y": -876.1080938084436,
+                        "width": 360,
+                        "height": 242
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Direct-Question-v2.jpg",
+                        "description": "支持中间向用户提问问题,支持预置选项提问和开放式问题提问两种方式",
+                        "title": "问答",
+                        "mainColor": "#3071F2"
+                    }
+                }
+            },
+            {
+                "id": "193252",
+                "type": "5",
+                "meta": {
+                    "position": {
+                        "x": 2896.8315431480664,
+                        "y": -585.3211927567992
+                    }
+                },
+                "data": {
+                    "nodeMeta": {
+                        "description": "编写代码，处理输入变量来生成返回值",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                        "mainColor": "#00B2B2",
+                        "subTitle": "代码",
+                        "title": "代码_3"
+                    },
+                    "inputs": {
+                        "inputParameters": [
+                            {
+                                "name": "wenan",
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "130771",
+                                            "name": "output.data.text"
+                                        },
+                                        "rawMeta": {
+                                            "type": 1
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "code": "// 在这里，您可以通过 'params'  获取节点中的输入变量，并通过 'ret' 输出结果\n// 'params' 已经被正确地注入到环境中\n// 下面是一个示例，获取节点输入中参数名为'input'的值：\n// const input = params.input; \n// 下面是一个示例，输出一个包含多种数据类型的 'ret' 对象：\n// const ret = { \"name\": '小明', \"hobbies\": [\"看书\", \"旅游\"] };\n\nasync function main({ params }: Args): Promise<Output> {\n    // let wenan = \n\n    return {\n        output: params.wenan\n    };\n}",
+                        "language": 5,
+                        "settingOnError": {
+                            "processType": 1,
+                            "timeoutMs": 60000,
+                            "retryTimes": 0
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "type": "string",
+                            "name": "output"
+                        }
+                    ],
+                    "version": "v2"
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": 2716.8315431480664,
+                        "y": -585.3211927567992,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                        "description": "编写代码，处理输入变量来生成返回值",
+                        "title": "代码",
+                        "mainColor": "#00B2B2"
+                    }
+                }
+            },
+            {
+                "id": "149805",
+                "type": "28",
+                "meta": {
+                    "position": {
+                        "x": -575.8856285126853,
+                        "y": -537.981010549922
+                    },
+                    "canvasPosition": {
+                        "x": -1022.9017369017522,
+                        "y": -262.3384442538121
+                    }
+                },
+                "data": {
+                    "inputs": {
+                        "batchSize": {
+                            "type": "integer",
+                            "value": {
+                                "type": "literal",
+                                "content": 200,
+                                "rawMeta": {
+                                    "type": 2
+                                }
+                            }
+                        },
+                        "concurrentSize": {
+                            "type": "integer",
+                            "value": {
+                                "type": "literal",
+                                "content": 5,
+                                "rawMeta": {
+                                    "type": 2
+                                }
+                            }
+                        },
+                        "inputParameters": [
+                            {
+                                "name": "input",
+                                "input": {
+                                    "type": "list",
+                                    "schema": {
+                                        "type": "object",
+                                        "schema": []
+                                    },
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "196421",
+                                            "name": "output"
+                                        },
+                                        "rawMeta": {
+                                            "type": 103
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "nodeMeta": {
+                        "description": "通过设定批量运行次数和逻辑，运行批处理体内的任务",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Batch-v2.jpg",
+                        "mainColor": "#00B2B2",
+                        "subTitle": "批处理",
+                        "title": "批处理"
+                    },
+                    "outputs": [
+                        {
+                            "name": "output",
+                            "input": {
+                                "type": "list",
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "ref",
+                                    "content": {
+                                        "source": "block-output",
+                                        "blockID": "1749195",
+                                        "name": "output.data.text"
+                                    },
+                                    "rawMeta": {
+                                        "type": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "blocks": [
+                    {
+                        "id": "1720238",
+                        "type": "5",
+                        "meta": {
+                            "position": {
+                                "x": -311.5087600426143,
+                                "y": -30.563541629260783
+                            }
+                        },
+                        "data": {
+                            "nodeMeta": {
+                                "description": "编写代码，处理输入变量来生成返回值",
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                                "mainColor": "#00B2B2",
+                                "subTitle": "代码",
+                                "title": "代码_4"
+                            },
+                            "inputs": {
+                                "inputParameters": [
+                                    {
+                                        "name": "input",
+                                        "input": {
+                                            "type": "object",
+                                            "schema": [],
+                                            "value": {
+                                                "type": "ref",
+                                                "content": {
+                                                    "source": "block-output",
+                                                    "blockID": "149805",
+                                                    "name": "input"
+                                                },
+                                                "rawMeta": {
+                                                    "type": 6
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "code": "// 在这里，您可以通过 'params'  获取节点中的输入变量，并通过 'ret' 输出结果\n// 'params' 已经被正确地注入到环境中\n// 下面是一个示例，获取节点输入中参数名为'input'的值：\n// const input = params.input; \n// 下面是一个示例，输出一个包含多种数据类型的 'ret' 对象：\n// const ret = { \"name\": '小明', \"hobbies\": [\"看书\", \"旅游\"] };\n\nasync function main({ params }: Args): Promise<Output> {\n\n    return {\n        url:params.input['视频文件']\n    };\n}",
+                                "language": 5,
+                                "settingOnError": {
+                                    "processType": 1,
+                                    "timeoutMs": 60000,
+                                    "retryTimes": 0
+                                }
+                            },
+                            "outputs": [
+                                {
+                                    "type": "string",
+                                    "name": "url"
+                                }
+                            ],
+                            "version": "v2"
+                        },
+                        "_temp": {
+                            "bounds": {
+                                "x": -1514.4104969443665,
+                                "y": -292.9019858830729,
+                                "width": 360,
+                                "height": 111.3
+                            },
+                            "externalData": {
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                                "description": "编写代码，处理输入变量来生成返回值",
+                                "title": "代码",
+                                "mainColor": "#00B2B2"
+                            }
+                        }
+                    },
+                    {
+                        "id": "1647293",
+                        "type": "5",
+                        "meta": {
+                            "position": {
+                                "x": -311.50876004261426,
+                                "y": 225.305150120287
+                            }
+                        },
+                        "data": {
+                            "nodeMeta": {
+                                "description": "编写代码，处理输入变量来生成返回值",
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                                "subTitle": "代码",
+                                "title": "代码_6"
+                            },
+                            "inputs": {
+                                "inputParameters": [
+                                    {
+                                        "name": "input",
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "type": "ref",
+                                                "content": {
+                                                    "source": "block-output",
+                                                    "blockID": "1720238",
+                                                    "name": "url"
+                                                },
+                                                "rawMeta": {
+                                                    "type": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "code": "// 在这里，您可以通过 'params'  获取节点中的输入变量，并通过 'ret' 输出结果\n// 'params' 已经被正确地注入到环境中\n// 下面是一个示例，获取节点输入中参数名为'input'的值：\n// const input = params.input; \n// 下面是一个示例，输出一个包含多种数据类型的 'ret' 对象：\n// const ret = { \"name\": '小明', \"hobbies\": [\"看书\", \"旅游\"] };\n\nasync function main({ params }: Args): Promise<Output> {\n    const data = JSON.stringify({ url: params.input });\n    const curlCmd = `curl -X POST http://dev.oxox.studio/api/tools/genasr \\\n  -H \"Content-Type: application/json\" \\\n  -d '${data}'`;\n    return {\n      requestBody: curlCmd\n    };\n  }",
+                                "language": 5,
+                                "settingOnError": {
+                                    "switch": false,
+                                    "processType": 1,
+                                    "timeoutMs": 60000,
+                                    "retryTimes": 0
+                                }
+                            },
+                            "outputs": [
+                                {
+                                    "type": "string",
+                                    "name": "requestBody",
+                                    "required": false
+                                }
+                            ],
+                            "version": "v2"
+                        },
+                        "_temp": {
+                            "bounds": {
+                                "x": -1514.4104969443665,
+                                "y": -37.03329413352509,
+                                "width": 360,
+                                "height": 111.3
+                            },
+                            "externalData": {
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                                "description": "编写代码，处理输入变量来生成返回值",
+                                "title": "代码",
+                                "mainColor": "#00B2B2"
+                            }
+                        }
+                    },
+                    {
+                        "id": "1348113",
+                        "type": "4",
+                        "meta": {
+                            "position": {
+                                "x": -311.5087600426141,
+                                "y": 361.0495146510395
+                            }
+                        },
+                        "data": {
+                            "nodeMeta": {
+                                "description": "使用curl发送HTTP请求。",
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Plugin-v2.jpg",
+                                "subtitle": "HTTP请求器:curl",
+                                "title": "curl_2"
+                            },
+                            "inputs": {
+                                "apiParam": [
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "7413213283358097427",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "apiID"
+                                    },
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "curl",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "apiName"
+                                    },
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "7413213283358081043",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "pluginID"
+                                    },
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "HTTP请求器",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "pluginName"
+                                    },
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "pluginVersion"
+                                    },
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "tips"
+                                    },
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "outDocLink"
+                                    }
+                                ],
+                                "inputParameters": [
+                                    {
+                                        "name": "curl_string",
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "type": "ref",
+                                                "content": {
+                                                    "source": "block-output",
+                                                    "blockID": "1647293",
+                                                    "name": "requestBody"
+                                                },
+                                                "rawMeta": {
+                                                    "type": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "settingOnError": {
+                                    "switch": true,
+                                    "dataOnErr": "{\n    \"code\": 0,\n    \"data\": {\n        \"body\": {\n            \"msg\": \"error\",\n            \"data\": {\n                \"text\": \"识别错误\"\n            }\n        },\n        \"header\": \"\"\n    },\n    \"log_id\": \"\",\n    \"msg\": \"\"\n}",
+                                    "processType": 2,
+                                    "timeoutMs": 600000,
+                                    "retryTimes": 3
+                                }
+                            },
+                            "outputs": [
+                                {
+                                    "type": "float",
+                                    "name": "code",
+                                    "required": false
+                                },
+                                {
+                                    "type": "object",
+                                    "name": "data",
+                                    "schema": [
+                                        {
+                                            "type": "string",
+                                            "name": "body",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "string",
+                                            "name": "header",
+                                            "required": false
+                                        }
+                                    ],
+                                    "required": false
+                                },
+                                {
+                                    "type": "string",
+                                    "name": "log_id",
+                                    "required": false
+                                },
+                                {
+                                    "type": "string",
+                                    "name": "msg",
+                                    "required": false
+                                },
+                                {
+                                    "type": "object",
+                                    "name": "errorBody",
+                                    "schema": [
+                                        {
+                                            "type": "string",
+                                            "name": "errorMessage",
+                                            "readonly": true
+                                        },
+                                        {
+                                            "type": "string",
+                                            "name": "errorCode",
+                                            "readonly": true
+                                        }
+                                    ],
+                                    "readonly": true
+                                },
+                                {
+                                    "type": "boolean",
+                                    "name": "isSuccess",
+                                    "readonly": true
+                                }
+                            ]
+                        },
+                        "_temp": {
+                            "bounds": {
+                                "x": -1514.4104969443663,
+                                "y": 98.71107039722739,
+                                "width": 360,
+                                "height": 111.3
+                            },
+                            "externalData": {
+                                "icon": "https://lf6-appstore-sign.oceancloudapi.com/ocean-cloud-tos/plugin_icon/2175268956156697_1726023115553561078_gZvCB3UsGW.jpeg?lk3s=cd508e2b&x-expires=1781613163&x-signature=yCBNgzPLOjlcGISE9GTEVf5vGx4%3D",
+                                "apiName": "curl",
+                                "pluginID": "7413213283358081043",
+                                "pluginProductStatus": 1,
+                                "pluginProductUnlistType": 0,
+                                "pluginType": 1,
+                                "spaceID": "7315016311652941851",
+                                "inputs": [
+                                    {
+                                        "description": "CURL",
+                                        "input": {},
+                                        "name": "curl_string",
+                                        "required": true,
+                                        "type": "string"
+                                    }
+                                ],
+                                "outputs": [
+                                    {
+                                        "input": {},
+                                        "name": "code",
+                                        "required": false,
+                                        "type": "float"
+                                    },
+                                    {
+                                        "input": {},
+                                        "name": "data",
+                                        "required": false,
+                                        "schema": [
+                                            {
+                                                "input": {},
+                                                "name": "header",
+                                                "required": false,
+                                                "type": "string"
+                                            },
+                                            {
+                                                "input": {},
+                                                "name": "body",
+                                                "required": false,
+                                                "type": "string"
+                                            }
+                                        ],
+                                        "type": "object"
+                                    },
+                                    {
+                                        "input": {},
+                                        "name": "log_id",
+                                        "required": false,
+                                        "type": "string"
+                                    },
+                                    {
+                                        "input": {},
+                                        "name": "msg",
+                                        "required": false,
+                                        "type": "string"
+                                    }
+                                ],
+                                "updateTime": 1779019426,
+                                "channel_id": 2,
+                                "commercial_setting": {},
+                                "latestVersionTs": "0",
+                                "latestVersionName": "",
+                                "versionName": "",
+                                "description": "使用curl发送HTTP请求。",
+                                "title": "curl",
+                                "mainColor": "#CA61FF"
+                            }
+                        }
+                    },
+                    {
+                        "id": "1749195",
+                        "type": "59",
+                        "meta": {
+                            "position": {
+                                "x": 257.9249336356087,
+                                "y": 207.20910223114112
+                            }
+                        },
+                        "data": {
+                            "inputs": {
+                                "inputParameters": [
+                                    {
+                                        "name": "input",
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "type": "ref",
+                                                "content": {
+                                                    "source": "block-output",
+                                                    "blockID": "1348113",
+                                                    "name": "data.body"
+                                                },
+                                                "rawMeta": {
+                                                    "type": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "nodeMeta": {
+                                "description": "用于把JSON字符串转化为变量",
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-from_json.png",
+                                "mainColor": "#F2B600",
+                                "subTitle": "JSON 反序列化",
+                                "title": "JSON 反序列化_4"
+                            },
+                            "outputs": [
+                                {
+                                    "type": "object",
+                                    "name": "output",
+                                    "schema": [
+                                        {
+                                            "type": "object",
+                                            "name": "data",
+                                            "schema": [
+                                                {
+                                                    "type": "string",
+                                                    "name": "text"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "_temp": {
+                            "bounds": {
+                                "x": -944.9768032661435,
+                                "y": -55.12934202267098,
+                                "width": 360,
+                                "height": 111.3
+                            },
+                            "externalData": {
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-from_json.png",
+                                "description": "用于把JSON字符串转化为变量",
+                                "title": "JSON 反序列化",
+                                "mainColor": "#F2B600"
+                            }
+                        }
+                    }
+                ],
+                "edges": [
+                    {
+                        "sourceNodeID": "149805",
+                        "targetNodeID": "1720238",
+                        "sourcePortID": "batch-function-inline-output"
+                    },
+                    {
+                        "sourceNodeID": "1720238",
+                        "targetNodeID": "1647293"
+                    },
+                    {
+                        "sourceNodeID": "1647293",
+                        "targetNodeID": "1348113"
+                    },
+                    {
+                        "sourceNodeID": "1348113",
+                        "targetNodeID": "1749195"
+                    },
+                    {
+                        "sourceNodeID": "1749195",
+                        "targetNodeID": "149805",
+                        "targetPortID": "batch-function-inline-input"
+                    }
+                ],
+                "_temp": {
+                    "bounds": {
+                        "x": -755.8856285126853,
+                        "y": -537.981010549922,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Batch-v2.jpg",
+                        "description": "通过设定批量运行次数和逻辑，运行批处理体内的任务",
+                        "title": "批处理",
+                        "mainColor": "#00B2B2"
+                    }
+                }
+            },
+            {
+                "id": "100629",
+                "type": "18",
+                "meta": {
+                    "position": {
+                        "x": -1365.8856285126856,
+                        "y": -272.0810105499221
+                    }
+                },
+                "data": {
+                    "inputs": {
+                        "llmParam": {
+                            "generationDiversity": "balance",
+                            "maxTokens": 4096,
+                            "modelName": "豆包·1.5·Pro·32k",
+                            "modelType": 1737521813,
+                            "responseFormat": 2,
+                            "systemPrompt": "",
+                            "temperature": 0.8
+                        },
+                        "inputParameters": [],
+                        "extra_output": false,
+                        "answer_type": "option",
+                        "option_type": "static",
+                        "dynamic_option": {
+                            "type": "string",
+                            "value": {
+                                "type": "ref",
+                                "content": {
+                                    "source": "block-output",
+                                    "blockID": "",
+                                    "name": ""
+                                },
+                                "rawMeta": {
+                                    "type": 1
+                                }
+                            }
+                        },
+                        "question": "选择处理模式：",
+                        "options": [
+                            {
+                                "name": "快速模式（最多200条）"
+                            },
+                            {
+                                "name": "大量数据模式（比较慢）"
+                            }
+                        ],
+                        "limit": 3
+                    },
+                    "nodeMeta": {
+                        "description": "支持中间向用户提问问题,支持预置选项提问和开放式问题提问两种方式",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Direct-Question-v2.jpg",
+                        "mainColor": "#3071F2",
+                        "subTitle": "问答",
+                        "title": "问答_1"
+                    },
+                    "outputs": [
+                        {
+                            "type": "string",
+                            "name": "optionId",
+                            "required": false
+                        },
+                        {
+                            "type": "string",
+                            "name": "optionContent",
+                            "required": false
+                        },
+                        {
+                            "type": "object",
+                            "name": "QUESTION_DATA",
+                            "schema": [
+                                {
+                                    "type": "string",
+                                    "name": "title"
+                                },
+                                {
+                                    "type": "list",
+                                    "name": "options",
+                                    "schema": {
+                                        "type": "object",
+                                        "schema": [
+                                            {
+                                                "type": "string",
+                                                "name": "name"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "required": false
+                        }
+                    ]
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": -1545.8856285126856,
+                        "y": -272.0810105499221,
+                        "width": 360,
+                        "height": 242
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Direct-Question-v2.jpg",
+                        "description": "支持中间向用户提问问题,支持预置选项提问和开放式问题提问两种方式",
+                        "title": "问答",
+                        "mainColor": "#3071F2"
+                    }
+                }
+            },
+            {
+                "id": "177388",
+                "type": "21",
+                "meta": {
+                    "position": {
+                        "x": -768.7229616640057,
+                        "y": 483.79390759592764
+                    },
+                    "canvasPosition": {
+                        "x": -1562.611645874478,
+                        "y": 812.3582805495738
+                    }
+                },
+                "data": {
+                    "inputs": {
+                        "inputParameters": [
+                            {
+                                "name": "input",
+                                "input": {
+                                    "type": "list",
+                                    "schema": {
+                                        "type": "object",
+                                        "schema": []
+                                    },
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "196421",
+                                            "name": "output"
+                                        },
+                                        "rawMeta": {
+                                            "type": 103
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "loopCount": {
+                            "type": "integer",
+                            "value": {
+                                "type": "literal",
+                                "content": 10,
+                                "rawMeta": {
+                                    "type": 2
+                                }
+                            }
+                        },
+                        "loopType": "array",
+                        "variableParameters": []
+                    },
+                    "nodeMeta": {
+                        "description": "用于通过设定循环次数和逻辑，重复执行一系列任务",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Loop-v2.jpg",
+                        "mainColor": "#00B2B2",
+                        "subTitle": "循环",
+                        "title": "循环"
+                    },
+                    "outputs": [
+                        {
+                            "name": "output",
+                            "input": {
+                                "type": "list",
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "ref",
+                                    "content": {
+                                        "source": "block-output",
+                                        "blockID": "1052955",
+                                        "name": "output.data.text"
+                                    },
+                                    "rawMeta": {
+                                        "type": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "blocks": [
+                    {
+                        "id": "131161",
+                        "type": "5",
+                        "meta": {
+                            "position": {
+                                "x": -311.5087600426143,
+                                "y": -30.563541629260783
+                            }
+                        },
+                        "data": {
+                            "nodeMeta": {
+                                "description": "编写代码，处理输入变量来生成返回值",
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                                "mainColor": "#00B2B2",
+                                "subTitle": "代码",
+                                "title": "代码_1"
+                            },
+                            "inputs": {
+                                "inputParameters": [
+                                    {
+                                        "name": "input",
+                                        "input": {
+                                            "type": "object",
+                                            "schema": [],
+                                            "value": {
+                                                "type": "ref",
+                                                "content": {
+                                                    "source": "block-output",
+                                                    "blockID": "177388",
+                                                    "name": "input"
+                                                },
+                                                "rawMeta": {
+                                                    "type": 6
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "code": "// 在这里，您可以通过 'params'  获取节点中的输入变量，并通过 'ret' 输出结果\n// 'params' 已经被正确地注入到环境中\n// 下面是一个示例，获取节点输入中参数名为'input'的值：\n// const input = params.input; \n// 下面是一个示例，输出一个包含多种数据类型的 'ret' 对象：\n// const ret = { \"name\": '小明', \"hobbies\": [\"看书\", \"旅游\"] };\n\nasync function main({ params }: Args): Promise<Output> {\n\n    return {\n        url:params.input['视频文件']\n    };\n}",
+                                "language": 5,
+                                "settingOnError": {
+                                    "processType": 1,
+                                    "timeoutMs": 60000,
+                                    "retryTimes": 0
+                                }
+                            },
+                            "outputs": [
+                                {
+                                    "type": "string",
+                                    "name": "url"
+                                }
+                            ],
+                            "version": "v2"
+                        },
+                        "_temp": {
+                            "bounds": {
+                                "x": -2054.1204059170923,
+                                "y": 781.794738920313,
+                                "width": 360,
+                                "height": 111.3
+                            },
+                            "externalData": {
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                                "description": "编写代码，处理输入变量来生成返回值",
+                                "title": "代码",
+                                "mainColor": "#00B2B2"
+                            }
+                        }
+                    },
+                    {
+                        "id": "1052955",
+                        "type": "59",
+                        "meta": {
+                            "position": {
+                                "x": 920.654357559788,
+                                "y": -8.409229083389732
+                            }
+                        },
+                        "data": {
+                            "inputs": {
+                                "inputParameters": [
+                                    {
+                                        "name": "input",
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "type": "ref",
+                                                "content": {
+                                                    "source": "block-output",
+                                                    "blockID": "1891789",
+                                                    "name": "data.body"
+                                                },
+                                                "rawMeta": {
+                                                    "type": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "nodeMeta": {
+                                "description": "用于把JSON字符串转化为变量",
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-from_json.png",
+                                "mainColor": "#F2B600",
+                                "subTitle": "JSON 反序列化",
+                                "title": "JSON 反序列化_3"
+                            },
+                            "outputs": [
+                                {
+                                    "type": "object",
+                                    "name": "output",
+                                    "schema": [
+                                        {
+                                            "type": "object",
+                                            "name": "data",
+                                            "schema": [
+                                                {
+                                                    "type": "string",
+                                                    "name": "text"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "_temp": {
+                            "bounds": {
+                                "x": -821.95728831469,
+                                "y": 803.9490514661841,
+                                "width": 360,
+                                "height": 111.3
+                            },
+                            "externalData": {
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-from_json.png",
+                                "description": "用于把JSON字符串转化为变量",
+                                "title": "JSON 反序列化",
+                                "mainColor": "#F2B600"
+                            }
+                        }
+                    },
+                    {
+                        "id": "1891789",
+                        "type": "4",
+                        "meta": {
+                            "position": {
+                                "x": 515.9377632179611,
+                                "y": -22.46316226731666
+                            }
+                        },
+                        "data": {
+                            "nodeMeta": {
+                                "description": "使用curl发送HTTP请求。",
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Plugin-v2.jpg",
+                                "subtitle": "HTTP请求器:curl",
+                                "title": "curl_1"
+                            },
+                            "inputs": {
+                                "apiParam": [
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "7413213283358097427",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "apiID"
+                                    },
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "curl",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "apiName"
+                                    },
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "7413213283358081043",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "pluginID"
+                                    },
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "HTTP请求器",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "pluginName"
+                                    },
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "pluginVersion"
+                                    },
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "tips"
+                                    },
+                                    {
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "content": "",
+                                                "rawMeta": {
+                                                    "type": 1
+                                                },
+                                                "type": "literal"
+                                            }
+                                        },
+                                        "name": "outDocLink"
+                                    }
+                                ],
+                                "inputParameters": [
+                                    {
+                                        "name": "curl_string",
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "type": "ref",
+                                                "content": {
+                                                    "source": "block-output",
+                                                    "blockID": "1237194",
+                                                    "name": "requestBody"
+                                                },
+                                                "rawMeta": {
+                                                    "type": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "settingOnError": {
+                                    "processType": 1,
+                                    "timeoutMs": 600000,
+                                    "retryTimes": 0
+                                }
+                            },
+                            "outputs": [
+                                {
+                                    "type": "float",
+                                    "name": "code",
+                                    "required": false
+                                },
+                                {
+                                    "type": "object",
+                                    "name": "data",
+                                    "schema": [
+                                        {
+                                            "type": "string",
+                                            "name": "body",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "string",
+                                            "name": "header",
+                                            "required": false
+                                        }
+                                    ],
+                                    "required": false
+                                },
+                                {
+                                    "type": "string",
+                                    "name": "log_id",
+                                    "required": false
+                                },
+                                {
+                                    "type": "string",
+                                    "name": "msg",
+                                    "required": false
+                                }
+                            ]
+                        },
+                        "_temp": {
+                            "bounds": {
+                                "x": -1226.673882656517,
+                                "y": 789.8951182822572,
+                                "width": 360,
+                                "height": 111.3
+                            },
+                            "externalData": {
+                                "icon": "https://lf6-appstore-sign.oceancloudapi.com/ocean-cloud-tos/plugin_icon/2175268956156697_1726023115553561078_gZvCB3UsGW.jpeg?lk3s=cd508e2b&x-expires=1781613163&x-signature=yCBNgzPLOjlcGISE9GTEVf5vGx4%3D",
+                                "apiName": "curl",
+                                "pluginID": "7413213283358081043",
+                                "pluginProductStatus": 1,
+                                "pluginProductUnlistType": 0,
+                                "pluginType": 1,
+                                "spaceID": "7315016311652941851",
+                                "inputs": [
+                                    {
+                                        "description": "CURL",
+                                        "input": {},
+                                        "name": "curl_string",
+                                        "required": true,
+                                        "type": "string"
+                                    }
+                                ],
+                                "outputs": [
+                                    {
+                                        "input": {},
+                                        "name": "code",
+                                        "required": false,
+                                        "type": "float"
+                                    },
+                                    {
+                                        "input": {},
+                                        "name": "data",
+                                        "required": false,
+                                        "schema": [
+                                            {
+                                                "input": {},
+                                                "name": "header",
+                                                "required": false,
+                                                "type": "string"
+                                            },
+                                            {
+                                                "input": {},
+                                                "name": "body",
+                                                "required": false,
+                                                "type": "string"
+                                            }
+                                        ],
+                                        "type": "object"
+                                    },
+                                    {
+                                        "input": {},
+                                        "name": "log_id",
+                                        "required": false,
+                                        "type": "string"
+                                    },
+                                    {
+                                        "input": {},
+                                        "name": "msg",
+                                        "required": false,
+                                        "type": "string"
+                                    }
+                                ],
+                                "updateTime": 1779019426,
+                                "channel_id": 2,
+                                "commercial_setting": {},
+                                "latestVersionTs": "0",
+                                "latestVersionName": "",
+                                "versionName": "",
+                                "description": "使用curl发送HTTP请求。",
+                                "title": "curl",
+                                "mainColor": "#CA61FF"
+                            }
+                        }
+                    },
+                    {
+                        "id": "1237194",
+                        "type": "5",
+                        "meta": {
+                            "position": {
+                                "x": 120.04529401361367,
+                                "y": -22.46316226731666
+                            }
+                        },
+                        "data": {
+                            "nodeMeta": {
+                                "description": "编写代码，处理输入变量来生成返回值",
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                                "subTitle": "代码",
+                                "title": "代码_5"
+                            },
+                            "inputs": {
+                                "inputParameters": [
+                                    {
+                                        "name": "input",
+                                        "input": {
+                                            "type": "string",
+                                            "value": {
+                                                "type": "ref",
+                                                "content": {
+                                                    "source": "block-output",
+                                                    "blockID": "131161",
+                                                    "name": "url"
+                                                },
+                                                "rawMeta": {
+                                                    "type": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "code": "// 在这里，您可以通过 'params'  获取节点中的输入变量，并通过 'ret' 输出结果\n// 'params' 已经被正确地注入到环境中\n// 下面是一个示例，获取节点输入中参数名为'input'的值：\n// const input = params.input; \n// 下面是一个示例，输出一个包含多种数据类型的 'ret' 对象：\n// const ret = { \"name\": '小明', \"hobbies\": [\"看书\", \"旅游\"] };\n\nasync function main({ params }: Args): Promise<Output> {\n    const data = JSON.stringify({ url: params.input });\n    const curlCmd = `curl -X POST http://dev.oxox.studio/api/tools/genasr \\\n  -H \"Content-Type: application/json\" \\\n  -d '${data}'`;\n    return {\n      requestBody: curlCmd\n    };\n  }",
+                                "language": 5,
+                                "settingOnError": {
+                                    "switch": false,
+                                    "processType": 1,
+                                    "timeoutMs": 60000,
+                                    "retryTimes": 0
+                                }
+                            },
+                            "outputs": [
+                                {
+                                    "type": "string",
+                                    "name": "requestBody",
+                                    "required": false
+                                }
+                            ],
+                            "version": "v2"
+                        },
+                        "_temp": {
+                            "bounds": {
+                                "x": -1622.5663518608644,
+                                "y": 789.8951182822572,
+                                "width": 360,
+                                "height": 111.3
+                            },
+                            "externalData": {
+                                "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                                "description": "编写代码，处理输入变量来生成返回值",
+                                "title": "代码",
+                                "mainColor": "#00B2B2"
+                            }
+                        }
+                    }
+                ],
+                "edges": [
+                    {
+                        "sourceNodeID": "177388",
+                        "targetNodeID": "131161",
+                        "sourcePortID": "loop-function-inline-output"
+                    },
+                    {
+                        "sourceNodeID": "131161",
+                        "targetNodeID": "1237194"
+                    },
+                    {
+                        "sourceNodeID": "1891789",
+                        "targetNodeID": "1052955"
+                    },
+                    {
+                        "sourceNodeID": "1052955",
+                        "targetNodeID": "177388",
+                        "targetPortID": "loop-function-inline-input"
+                    },
+                    {
+                        "sourceNodeID": "1237194",
+                        "targetNodeID": "1891789"
+                    }
+                ],
+                "_temp": {
+                    "bounds": {
+                        "x": -948.7229616640057,
+                        "y": 483.79390759592764,
+                        "width": 360,
+                        "height": 137.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Loop-v2.jpg",
+                        "description": "用于通过设定循环次数和逻辑，重复执行一系列任务",
+                        "title": "循环",
+                        "mainColor": "#00B2B2"
+                    }
+                }
+            },
+            {
+                "id": "109490",
+                "type": "4",
+                "meta": {
+                    "position": {
+                        "x": 1905.969691849264,
+                        "y": -226.82502295327558
+                    }
+                },
+                "data": {
+                    "nodeMeta": {
+                        "description": "在多维表格数据表中新增多条记录，单次调用最多新增 500 条记录。",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Plugin-v2.jpg",
+                        "subtitle": "飞书多维表格:add_records",
+                        "title": "add_records"
+                    },
+                    "inputs": {
+                        "apiParam": [
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "7395047759797288987",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "apiID"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "add_records",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "apiName"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "7395047759797272603",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginID"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "飞书多维表格",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginName"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginVersion"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "tips"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "outDocLink"
+                            },
+                            {
+                                "input": {
+                                    "type": "integer",
+                                    "value": {
+                                        "content": 0,
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginAuthMode"
+                            }
+                        ],
+                        "inputParameters": [
+                            {
+                                "name": "app_token",
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "type": "literal",
+                                        "content": "https://hcniufphm0iw.feishu.cn/wiki/D5b2wqP0EiNPG7k67VycDSJZn8g?from=from_copylink",
+                                        "rawMeta": {
+                                            "type": 1
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "name": "records",
+                                "input": {
+                                    "type": "list",
+                                    "schema": {
+                                        "type": "object",
+                                        "schema": []
+                                    },
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "142578",
+                                            "name": "output"
+                                        },
+                                        "rawMeta": {
+                                            "type": 103
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "settingOnError": {
+                            "processType": 1,
+                            "timeoutMs": 180000,
+                            "retryTimes": 0
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "type": "float",
+                            "name": "code",
+                            "required": false,
+                            "description": "错误码，非 0 表示失败。"
+                        },
+                        {
+                            "type": "object",
+                            "name": "data",
+                            "schema": [
+                                {
+                                    "type": "list",
+                                    "name": "records",
+                                    "schema": {
+                                        "type": "object",
+                                        "schema": [
+                                            {
+                                                "type": "string",
+                                                "name": "fields",
+                                                "required": false,
+                                                "description": "数据表的字段，即数据表的列，格式为 json 字符串。"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "name": "record_id",
+                                                "required": false,
+                                                "description": "一条记录的唯一标识 id"
+                                            }
+                                        ]
+                                    },
+                                    "required": false,
+                                    "description": "本次请求新增的记录列表"
+                                }
+                            ],
+                            "required": false,
+                            "description": "返回结果"
+                        },
+                        {
+                            "type": "string",
+                            "name": "log_id",
+                            "required": false,
+                            "description": "链路追踪 id"
+                        },
+                        {
+                            "type": "string",
+                            "name": "msg",
+                            "required": false,
+                            "description": "错误描述"
+                        }
+                    ]
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": 1725.969691849264,
+                        "y": -226.82502295327558,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf26-appstore-sign.oceancloudapi.com/ocean-cloud-tos/plugin_icon/618387578815144_1720635554144262143_tbFVbqTqbp.png?lk3s=cd508e2b&x-expires=1781613163&x-signature=s4ifYqhTqvNZM6JxRU%2F47OxjBiI%3D",
+                        "apiName": "add_records",
+                        "pluginID": "7395047759797272603",
+                        "pluginProductStatus": 1,
+                        "pluginProductUnlistType": 0,
+                        "pluginType": 1,
+                        "spaceID": "7315016311652941851",
+                        "inputs": [
+                            {
+                                "description": "多维表格的唯一标识符，支持输入文档 url。",
+                                "input": {},
+                                "name": "app_token",
+                                "required": true,
+                                "type": "string"
+                            },
+                            {
+                                "description": "多维表格数据表的唯一标识符",
+                                "input": {},
+                                "name": "table_id",
+                                "required": false,
+                                "type": "string"
+                            },
+                            {
+                                "description": "多维表格数据表的名称",
+                                "input": {},
+                                "name": "table_name",
+                                "required": false,
+                                "type": "string"
+                            },
+                            {
+                                "defaultValue": "open_id",
+                                "description": "用户 ID 类型，可选值有 open_id、union_id、user_id，默认值为 open_id。, default value is open_id",
+                                "input": {},
+                                "name": "user_id_type",
+                                "required": false,
+                                "type": "string"
+                            },
+                            {
+                                "description": "本次请求将要新增的记录列表，格式为：[{\"fields\":{\"文本\":\"文本内容\",\"单选\":\"选项 1\",\"日期\":1674206443000}}]",
+                                "input": {},
+                                "name": "records",
+                                "required": true,
+                                "schema": {
+                                    "schema": [
+                                        {
+                                            "description": "数据表的字段，即数据表的列，格式为 json 字符串。例如：{\"文本\":\"文本内容\",\"单选\":\"选项 1\",\"日期\":1674206443000}",
+                                            "input": {},
+                                            "name": "fields",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "list"
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "description": "错误描述",
+                                "input": {},
+                                "name": "msg",
+                                "required": false,
+                                "type": "string"
+                            },
+                            {
+                                "description": "错误码，非 0 表示失败。",
+                                "input": {},
+                                "name": "code",
+                                "required": false,
+                                "type": "float"
+                            },
+                            {
+                                "description": "返回结果",
+                                "input": {},
+                                "name": "data",
+                                "required": false,
+                                "schema": [
+                                    {
+                                        "description": "本次请求新增的记录列表",
+                                        "input": {},
+                                        "name": "records",
+                                        "required": false,
+                                        "schema": {
+                                            "schema": [
+                                                {
+                                                    "description": "一条记录的唯一标识 id",
+                                                    "input": {},
+                                                    "name": "record_id",
+                                                    "required": false,
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "description": "数据表的字段，即数据表的列，格式为 json 字符串。",
+                                                    "input": {},
+                                                    "name": "fields",
+                                                    "required": false,
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "type": "list"
+                                    }
+                                ],
+                                "type": "object"
+                            },
+                            {
+                                "description": "链路追踪 id",
+                                "input": {},
+                                "name": "log_id",
+                                "required": false,
+                                "type": "string"
+                            }
+                        ],
+                        "updateTime": 1779020546,
+                        "channel_id": 2,
+                        "commercial_setting": {},
+                        "latestVersionTs": "0",
+                        "latestVersionName": "",
+                        "versionName": "",
+                        "description": "在多维表格数据表中新增多条记录，单次调用最多新增 500 条记录。",
+                        "title": "add_records",
+                        "mainColor": "#CA61FF"
+                    }
+                }
+            },
+            {
+                "id": "1793526",
+                "type": "5",
+                "meta": {
+                    "position": {
+                        "x": 2073.6543967534203,
+                        "y": -982.6854898135911
+                    }
+                },
+                "data": {
+                    "nodeMeta": {
+                        "description": "编写代码，处理输入变量来生成返回值",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                        "mainColor": "#00B2B2",
+                        "subTitle": "代码",
+                        "title": "代码_7"
+                    },
+                    "inputs": {
+                        "inputParameters": [
+                            {
+                                "name": "input",
+                                "input": {
+                                    "type": "object",
+                                    "schema": [],
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "130355",
+                                            "name": "output"
+                                        },
+                                        "rawMeta": {
+                                            "type": 6
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "name": "content",
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "130771",
+                                            "name": "output.data.text"
+                                        },
+                                        "rawMeta": {
+                                            "type": 1
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "name": "share_input",
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "100001",
+                                            "name": "share"
+                                        },
+                                        "rawMeta": {
+                                            "type": 1
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "code": "async function main({ params }: Args): Promise<Output> {\n\n    // video_info\n\n    const outputdata = [{\n        fields: {\n            \"视频标题\": params.input.video_info.title,\n            \"视频链接\": params.input.video_info.videoUrls,\n            \"作品描述\": params.input.video_info.content,\n            \"作品话题\": params.input.video_info.topic,\n            \"点赞量\": params.input.video_info.like,\n            \"收藏量\": params.input.video_info.collect,\n            \"评论量\": params.input.video_info.comment,\n            \"发布时间\": params.input.video_info.createTime,\n            \"文案内容\": params.content,\n            \"分享链接\":params.share_input\n          }\n    }]\n  \n    return {\n      output: outputdata\n    };\n  }\n  ",
+                        "language": 5,
+                        "settingOnError": {
+                            "processType": 1,
+                            "timeoutMs": 60000,
+                            "retryTimes": 0
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "type": "list",
+                            "name": "output",
+                            "schema": {
+                                "type": "object",
+                                "schema": []
+                            }
+                        }
+                    ],
+                    "version": "v2"
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": 1893.6543967534203,
+                        "y": -982.6854898135911,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                        "description": "编写代码，处理输入变量来生成返回值",
+                        "title": "代码",
+                        "mainColor": "#00B2B2"
+                    }
+                }
+            },
+            {
+                "id": "1176517",
+                "type": "4",
+                "meta": {
+                    "position": {
+                        "x": 2519.3472461426322,
+                        "y": -956.7791358116305
+                    }
+                },
+                "data": {
+                    "nodeMeta": {
+                        "description": "在多维表格数据表中新增多条记录，单次调用最多新增 500 条记录。",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Plugin-v2.jpg",
+                        "subtitle": "飞书多维表格:add_records",
+                        "title": "add_records_1"
+                    },
+                    "inputs": {
+                        "apiParam": [
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "7395047759797288987",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "apiID"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "add_records",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "apiName"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "7395047759797272603",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginID"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "飞书多维表格",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginName"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginVersion"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "tips"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "outDocLink"
+                            },
+                            {
+                                "input": {
+                                    "type": "integer",
+                                    "value": {
+                                        "content": 0,
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginAuthMode"
+                            }
+                        ],
+                        "inputParameters": [
+                            {
+                                "name": "app_token",
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "type": "literal",
+                                        "content": "https://hcniufphm0iw.feishu.cn/wiki/CqCTwOyIUisogUkRK7ac9wXnnLc?from=from_copylink",
+                                        "rawMeta": {
+                                            "type": 1
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "name": "records",
+                                "input": {
+                                    "type": "list",
+                                    "schema": {
+                                        "type": "object",
+                                        "schema": []
+                                    },
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "1793526",
+                                            "name": "output"
+                                        },
+                                        "rawMeta": {
+                                            "type": 103
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "settingOnError": {
+                            "processType": 1,
+                            "timeoutMs": 180000,
+                            "retryTimes": 0
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "type": "float",
+                            "name": "code",
+                            "required": false,
+                            "description": "错误码，非 0 表示失败。"
+                        },
+                        {
+                            "type": "object",
+                            "name": "data",
+                            "schema": [
+                                {
+                                    "type": "list",
+                                    "name": "records",
+                                    "schema": {
+                                        "type": "object",
+                                        "schema": [
+                                            {
+                                                "type": "string",
+                                                "name": "fields",
+                                                "required": false,
+                                                "description": "数据表的字段，即数据表的列，格式为 json 字符串。"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "name": "record_id",
+                                                "required": false,
+                                                "description": "一条记录的唯一标识 id"
+                                            }
+                                        ]
+                                    },
+                                    "required": false,
+                                    "description": "本次请求新增的记录列表"
+                                }
+                            ],
+                            "required": false,
+                            "description": "返回结果"
+                        },
+                        {
+                            "type": "string",
+                            "name": "log_id",
+                            "required": false,
+                            "description": "链路追踪 id"
+                        },
+                        {
+                            "type": "string",
+                            "name": "msg",
+                            "required": false,
+                            "description": "错误描述"
+                        }
+                    ]
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": 2339.3472461426322,
+                        "y": -956.7791358116305,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf26-appstore-sign.oceancloudapi.com/ocean-cloud-tos/plugin_icon/618387578815144_1720635554144262143_tbFVbqTqbp.png?lk3s=cd508e2b&x-expires=1781613163&x-signature=s4ifYqhTqvNZM6JxRU%2F47OxjBiI%3D",
+                        "apiName": "add_records",
+                        "pluginID": "7395047759797272603",
+                        "pluginProductStatus": 1,
+                        "pluginProductUnlistType": 0,
+                        "pluginType": 1,
+                        "spaceID": "7315016311652941851",
+                        "inputs": [
+                            {
+                                "description": "多维表格的唯一标识符，支持输入文档 url。",
+                                "input": {},
+                                "name": "app_token",
+                                "required": true,
+                                "type": "string"
+                            },
+                            {
+                                "description": "多维表格数据表的唯一标识符",
+                                "input": {},
+                                "name": "table_id",
+                                "required": false,
+                                "type": "string"
+                            },
+                            {
+                                "description": "多维表格数据表的名称",
+                                "input": {},
+                                "name": "table_name",
+                                "required": false,
+                                "type": "string"
+                            },
+                            {
+                                "defaultValue": "open_id",
+                                "description": "用户 ID 类型，可选值有 open_id、union_id、user_id，默认值为 open_id。, default value is open_id",
+                                "input": {},
+                                "name": "user_id_type",
+                                "required": false,
+                                "type": "string"
+                            },
+                            {
+                                "description": "本次请求将要新增的记录列表，格式为：[{\"fields\":{\"文本\":\"文本内容\",\"单选\":\"选项 1\",\"日期\":1674206443000}}]",
+                                "input": {},
+                                "name": "records",
+                                "required": true,
+                                "schema": {
+                                    "schema": [
+                                        {
+                                            "description": "数据表的字段，即数据表的列，格式为 json 字符串。例如：{\"文本\":\"文本内容\",\"单选\":\"选项 1\",\"日期\":1674206443000}",
+                                            "input": {},
+                                            "name": "fields",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "list"
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "description": "错误描述",
+                                "input": {},
+                                "name": "msg",
+                                "required": false,
+                                "type": "string"
+                            },
+                            {
+                                "description": "错误码，非 0 表示失败。",
+                                "input": {},
+                                "name": "code",
+                                "required": false,
+                                "type": "float"
+                            },
+                            {
+                                "description": "返回结果",
+                                "input": {},
+                                "name": "data",
+                                "required": false,
+                                "schema": [
+                                    {
+                                        "description": "本次请求新增的记录列表",
+                                        "input": {},
+                                        "name": "records",
+                                        "required": false,
+                                        "schema": {
+                                            "schema": [
+                                                {
+                                                    "description": "一条记录的唯一标识 id",
+                                                    "input": {},
+                                                    "name": "record_id",
+                                                    "required": false,
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "description": "数据表的字段，即数据表的列，格式为 json 字符串。",
+                                                    "input": {},
+                                                    "name": "fields",
+                                                    "required": false,
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "type": "list"
+                                    }
+                                ],
+                                "type": "object"
+                            },
+                            {
+                                "description": "链路追踪 id",
+                                "input": {},
+                                "name": "log_id",
+                                "required": false,
+                                "type": "string"
+                            }
+                        ],
+                        "updateTime": 1779020546,
+                        "channel_id": 2,
+                        "commercial_setting": {},
+                        "latestVersionTs": "0",
+                        "latestVersionName": "",
+                        "versionName": "",
+                        "description": "在多维表格数据表中新增多条记录，单次调用最多新增 500 条记录。",
+                        "title": "add_records",
+                        "mainColor": "#CA61FF"
+                    }
+                }
+            },
+            {
+                "id": "163533",
+                "type": "18",
+                "meta": {
+                    "position": {
+                        "x": 2014.543665921526,
+                        "y": -673.2483272232697
+                    }
+                },
+                "data": {
+                    "inputs": {
+                        "llmParam": {
+                            "generationDiversity": "balance",
+                            "maxTokens": 4096,
+                            "modelName": "豆包·1.5·Pro·32k",
+                            "modelType": 1737521813,
+                            "responseFormat": 2,
+                            "systemPrompt": "",
+                            "temperature": 0.8
+                        },
+                        "inputParameters": [],
+                        "extra_output": false,
+                        "answer_type": "option",
+                        "option_type": "static",
+                        "dynamic_option": {
+                            "type": "string",
+                            "value": {
+                                "type": "ref",
+                                "content": {
+                                    "source": "block-output",
+                                    "blockID": "",
+                                    "name": ""
+                                },
+                                "rawMeta": {
+                                    "type": 1
+                                }
+                            }
+                        },
+                        "question": "是否写入精选对标视频飞书文档？",
+                        "options": [
+                            {
+                                "name": "搞上去"
+                            },
+                            {
+                                "name": "不搞，我就直接要文案"
+                            }
+                        ],
+                        "limit": 3
+                    },
+                    "nodeMeta": {
+                        "description": "支持中间向用户提问问题,支持预置选项提问和开放式问题提问两种方式",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Direct-Question-v2.jpg",
+                        "mainColor": "#3071F2",
+                        "subTitle": "问答",
+                        "title": "问答_2"
+                    },
+                    "outputs": [
+                        {
+                            "type": "string",
+                            "name": "optionId",
+                            "required": false
+                        },
+                        {
+                            "type": "string",
+                            "name": "optionContent",
+                            "required": false
+                        },
+                        {
+                            "type": "object",
+                            "name": "QUESTION_DATA",
+                            "schema": [
+                                {
+                                    "type": "string",
+                                    "name": "title"
+                                },
+                                {
+                                    "type": "list",
+                                    "name": "options",
+                                    "schema": {
+                                        "type": "object",
+                                        "schema": [
+                                            {
+                                                "type": "string",
+                                                "name": "name"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "required": false
+                        }
+                    ]
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": 1834.543665921526,
+                        "y": -673.2483272232697,
+                        "width": 360,
+                        "height": 242
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Direct-Question-v2.jpg",
+                        "description": "支持中间向用户提问问题,支持预置选项提问和开放式问题提问两种方式",
+                        "title": "问答",
+                        "mainColor": "#3071F2"
+                    }
+                }
+            },
+            {
+                "id": "130771",
+                "type": "59",
+                "meta": {
+                    "position": {
+                        "x": 1614.4146654748042,
+                        "y": -749.5810105499221
+                    }
+                },
+                "data": {
+                    "inputs": {
+                        "inputParameters": [
+                            {
+                                "name": "input",
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "174321",
+                                            "name": "data.body"
+                                        },
+                                        "rawMeta": {
+                                            "type": 1
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "nodeMeta": {
+                        "description": "用于把JSON字符串转化为变量",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-from_json.png",
+                        "mainColor": "#F2B600",
+                        "subTitle": "JSON 反序列化",
+                        "title": "JSON 反序列化_5"
+                    },
+                    "outputs": [
+                        {
+                            "type": "object",
+                            "name": "output",
+                            "schema": [
+                                {
+                                    "type": "object",
+                                    "name": "data",
+                                    "schema": [
+                                        {
+                                            "type": "string",
+                                            "name": "text"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": 1434.4146654748042,
+                        "y": -749.5810105499221,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-from_json.png",
+                        "description": "用于把JSON字符串转化为变量",
+                        "title": "JSON 反序列化",
+                        "mainColor": "#F2B600"
+                    }
+                }
+            },
+            {
+                "id": "174321",
+                "type": "4",
+                "meta": {
+                    "position": {
+                        "x": 1027.289614593923,
+                        "y": -810.7080938084436
+                    }
+                },
+                "data": {
+                    "nodeMeta": {
+                        "description": "使用curl发送HTTP请求。",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Plugin-v2.jpg",
+                        "subtitle": "HTTP请求器:curl",
+                        "title": "curl_3"
+                    },
+                    "inputs": {
+                        "apiParam": [
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "7413213283358097427",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "apiID"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "curl",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "apiName"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "7413213283358081043",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginID"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "HTTP请求器",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginName"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "pluginVersion"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "tips"
+                            },
+                            {
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "content": "",
+                                        "rawMeta": {
+                                            "type": 1
+                                        },
+                                        "type": "literal"
+                                    }
+                                },
+                                "name": "outDocLink"
+                            }
+                        ],
+                        "inputParameters": [
+                            {
+                                "name": "curl_string",
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "177766",
+                                            "name": "requestBody"
+                                        },
+                                        "rawMeta": {
+                                            "type": 1
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "settingOnError": {
+                            "processType": 1,
+                            "timeoutMs": 600000,
+                            "retryTimes": 0
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "type": "float",
+                            "name": "code",
+                            "required": false
+                        },
+                        {
+                            "type": "object",
+                            "name": "data",
+                            "schema": [
+                                {
+                                    "type": "string",
+                                    "name": "body",
+                                    "required": false
+                                },
+                                {
+                                    "type": "string",
+                                    "name": "header",
+                                    "required": false
+                                }
+                            ],
+                            "required": false
+                        },
+                        {
+                            "type": "string",
+                            "name": "log_id",
+                            "required": false
+                        },
+                        {
+                            "type": "string",
+                            "name": "msg",
+                            "required": false
+                        }
+                    ]
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": 847.289614593923,
+                        "y": -810.7080938084436,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf6-appstore-sign.oceancloudapi.com/ocean-cloud-tos/plugin_icon/2175268956156697_1726023115553561078_gZvCB3UsGW.jpeg?lk3s=cd508e2b&x-expires=1781613163&x-signature=yCBNgzPLOjlcGISE9GTEVf5vGx4%3D",
+                        "apiName": "curl",
+                        "pluginID": "7413213283358081043",
+                        "pluginProductStatus": 1,
+                        "pluginProductUnlistType": 0,
+                        "pluginType": 1,
+                        "spaceID": "7315016311652941851",
+                        "inputs": [
+                            {
+                                "description": "CURL",
+                                "input": {},
+                                "name": "curl_string",
+                                "required": true,
+                                "type": "string"
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "input": {},
+                                "name": "code",
+                                "required": false,
+                                "type": "float"
+                            },
+                            {
+                                "input": {},
+                                "name": "data",
+                                "required": false,
+                                "schema": [
+                                    {
+                                        "input": {},
+                                        "name": "header",
+                                        "required": false,
+                                        "type": "string"
+                                    },
+                                    {
+                                        "input": {},
+                                        "name": "body",
+                                        "required": false,
+                                        "type": "string"
+                                    }
+                                ],
+                                "type": "object"
+                            },
+                            {
+                                "input": {},
+                                "name": "log_id",
+                                "required": false,
+                                "type": "string"
+                            },
+                            {
+                                "input": {},
+                                "name": "msg",
+                                "required": false,
+                                "type": "string"
+                            }
+                        ],
+                        "updateTime": 1779019426,
+                        "channel_id": 2,
+                        "commercial_setting": {},
+                        "latestVersionTs": "0",
+                        "latestVersionName": "",
+                        "versionName": "",
+                        "description": "使用curl发送HTTP请求。",
+                        "title": "curl",
+                        "mainColor": "#CA61FF"
+                    }
+                }
+            },
+            {
+                "id": "177766",
+                "type": "5",
+                "meta": {
+                    "position": {
+                        "x": 631.3971453895756,
+                        "y": -810.7080938084436
+                    }
+                },
+                "data": {
+                    "nodeMeta": {
+                        "description": "编写代码，处理输入变量来生成返回值",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                        "subTitle": "代码",
+                        "title": "代码_8"
+                    },
+                    "inputs": {
+                        "inputParameters": [
+                            {
+                                "name": "input",
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "164442",
+                                            "name": "video_url"
+                                        },
+                                        "rawMeta": {
+                                            "type": 1
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "code": "// 在这里，您可以通过 'params'  获取节点中的输入变量，并通过 'ret' 输出结果\n// 'params' 已经被正确地注入到环境中\n// 下面是一个示例，获取节点输入中参数名为'input'的值：\n// const input = params.input; \n// 下面是一个示例，输出一个包含多种数据类型的 'ret' 对象：\n// const ret = { \"name\": '小明', \"hobbies\": [\"看书\", \"旅游\"] };\n\nasync function main({ params }: Args): Promise<Output> {\n    const data = JSON.stringify({ url: params.input });\n    const curlCmd = `curl -X POST http://dev.oxox.studio/api/tools/genasr \\\n  -H \"Content-Type: application/json\" \\\n  -d '${data}'`;\n    return {\n      requestBody: curlCmd\n    };\n  }",
+                        "language": 5,
+                        "settingOnError": {
+                            "switch": false,
+                            "processType": 1,
+                            "timeoutMs": 60000,
+                            "retryTimes": 0
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "type": "string",
+                            "name": "requestBody",
+                            "required": false
+                        }
+                    ],
+                    "version": "v2"
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": 451.3971453895756,
+                        "y": -810.7080938084436,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Code-v2.jpg",
+                        "description": "编写代码，处理输入变量来生成返回值",
+                        "title": "代码",
+                        "mainColor": "#00B2B2"
+                    }
+                }
+            },
+            {
+                "id": "100001",
+                "type": "1",
+                "meta": {
+                    "position": {
+                        "x": -3205.8856285126853,
+                        "y": -736.5810105499221
+                    }
+                },
+                "data": {
+                    "nodeMeta": {
+                        "description": "工作流的起始节点，用于设定启动工作流需要的信息",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Start-v2.jpg",
+                        "subTitle": "",
+                        "title": "开始"
+                    },
+                    "outputs": [
+                        {
+                            "type": "string",
+                            "assistType": 7,
+                            "name": "file",
+                            "required": false
+                        },
+                        {
+                            "type": "string",
+                            "name": "share",
+                            "required": false
+                        }
+                    ],
+                    "trigger_parameters": []
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": -3385.8856285126853,
+                        "y": -736.5810105499221,
+                        "width": 360,
+                        "height": 85.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-Start-v2.jpg",
+                        "description": "工作流的起始节点，用于设定启动工作流需要的信息",
+                        "title": "开始",
+                        "mainColor": "#5C62FF"
+                    }
+                }
+            },
+            {
+                "id": "900001",
+                "type": "2",
+                "meta": {
+                    "position": {
+                        "x": 3339.4579339026773,
+                        "y": -374.2696312914819
+                    }
+                },
+                "data": {
+                    "nodeMeta": {
+                        "description": "工作流的最终节点，用于返回工作流运行后的结果信息",
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-End-v2.jpg",
+                        "subTitle": "",
+                        "title": "结束"
+                    },
+                    "inputs": {
+                        "terminatePlan": "useAnswerContent",
+                        "streamingOutput": false,
+                        "inputParameters": [
+                            {
+                                "name": "output",
+                                "input": {
+                                    "type": "string",
+                                    "value": {
+                                        "type": "ref",
+                                        "content": {
+                                            "source": "block-output",
+                                            "blockID": "193252",
+                                            "name": "output"
+                                        },
+                                        "rawMeta": {
+                                            "type": 1
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "content": {
+                            "type": "string",
+                            "value": {
+                                "type": "literal",
+                                "content": "{{output}}"
+                            }
+                        }
+                    }
+                },
+                "_temp": {
+                    "bounds": {
+                        "x": 3159.4579339026773,
+                        "y": -374.2696312914819,
+                        "width": 360,
+                        "height": 111.3
+                    },
+                    "externalData": {
+                        "icon": "https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsmryvd_avi_dvsm/ljhwZthlaukjlkulzlp/icon/icon-End-v2.jpg",
+                        "description": "工作流的最终节点，用于返回工作流运行后的结果信息",
+                        "title": "结束",
+                        "mainColor": "#5C62FF"
+                    }
+                }
+            }
+        ],
+        "edges": [
+            {
+                "sourceNodeID": "124266",
+                "targetNodeID": "174801",
+                "sourcePortID": "branch_1"
+            },
+            {
+                "sourceNodeID": "174801",
+                "targetNodeID": "130355"
+            },
+            {
+                "sourceNodeID": "130355",
+                "targetNodeID": "164442"
+            },
+            {
+                "sourceNodeID": "164442",
+                "targetNodeID": "177766"
+            },
+            {
+                "sourceNodeID": "176508",
+                "targetNodeID": "196421"
+            },
+            {
+                "sourceNodeID": "196421",
+                "targetNodeID": "100629"
+            },
+            {
+                "sourceNodeID": "124266",
+                "targetNodeID": "176508",
+                "sourcePortID": "branch_0"
+            },
+            {
+                "sourceNodeID": "149805",
+                "targetNodeID": "142578",
+                "sourcePortID": "batch-output"
+            },
+            {
+                "sourceNodeID": "177388",
+                "targetNodeID": "142578",
+                "sourcePortID": "loop-output"
+            },
+            {
+                "sourceNodeID": "142578",
+                "targetNodeID": "109490"
+            },
+            {
+                "sourceNodeID": "100001",
+                "targetNodeID": "124266"
+            },
+            {
+                "sourceNodeID": "124266",
+                "targetNodeID": "900001",
+                "sourcePortID": "default"
+            },
+            {
+                "sourceNodeID": "163533",
+                "targetNodeID": "193252",
+                "sourcePortID": "default"
+            },
+            {
+                "sourceNodeID": "163533",
+                "targetNodeID": "193252",
+                "sourcePortID": "branch_1"
+            },
+            {
+                "sourceNodeID": "1176517",
+                "targetNodeID": "193252"
+            },
+            {
+                "sourceNodeID": "193252",
+                "targetNodeID": "900001"
+            },
+            {
+                "sourceNodeID": "100629",
+                "targetNodeID": "149805",
+                "sourcePortID": "branch_0"
+            },
+            {
+                "sourceNodeID": "100629",
+                "targetNodeID": "177388",
+                "sourcePortID": "branch_1"
+            },
+            {
+                "sourceNodeID": "100629",
+                "targetNodeID": "177388",
+                "sourcePortID": "default"
+            },
+            {
+                "sourceNodeID": "109490",
+                "targetNodeID": "900001"
+            },
+            {
+                "sourceNodeID": "163533",
+                "targetNodeID": "1793526",
+                "sourcePortID": "branch_0"
+            },
+            {
+                "sourceNodeID": "1793526",
+                "targetNodeID": "1176517"
+            },
+            {
+                "sourceNodeID": "130771",
+                "targetNodeID": "163533"
+            },
+            {
+                "sourceNodeID": "174321",
+                "targetNodeID": "130771"
+            },
+            {
+                "sourceNodeID": "177766",
+                "targetNodeID": "174321"
+            }
+        ]
+    },
+    "bounds": {
+        "x": -3385.8856285126853,
+        "y": -982.6854898135911,
+        "width": 6905.343562415363,
+        "height": 1603.7793974095189
+    }
+}
