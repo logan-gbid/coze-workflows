@@ -61,28 +61,6 @@ VideoPipeline 工作流可以从图片生成视频。以下是生成的视频效
 | ![视频生成效果 1](./ScreenShot_2026-05-18_113455_181.png) | 视频生成输出 - 113455 |
 | ![视频生成效果 2](./ScreenShot_2026-05-18_113911_308.png) | 视频生成输出 - 113911 |
 
-## 安全说明
-
-`workflows/` 文件夹中每个工作流都有两个版本：
-
- **原始文件**（`RewriteFlow.json`、`VideoPipeline.json`）：保留你实际的 ID 和工作空间引用——供个人使用或导入回你自己的 Coze 工作空间。
-
- **脱敏文件**（`sanitized_*.json`）：ID 已替换为占位符如 `YOUR_16_DIGIT_ID`——可安全公开分享。
-
-在分享或发布这些工作流之前，运行脱敏脚本更新脱敏版本：
-
-```powershell
-.\sanitize.ps1
-```
-
-## 环境变量说明
-
-| 变量名 | 说明 |
-|--------|------|
-| `COZE_API_KEY` | Coze API 密钥 |
-| `COZE_WORKFLOW_ID` | 工作流 ID |
-| `COZE_SPACE_ID` | 工作空间 ID |
-| `EXTERNAL_API_KEY` | 外部 API 密钥（如果有）|
 
 ## 依赖要求
 
